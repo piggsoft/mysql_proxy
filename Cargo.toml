@@ -1,1 +1,1 @@
-workspace = { members = ["protocol", "proxy"] }
+workspace = { members = [ "macros","protocol", "protocol_macros", "proxy"] }

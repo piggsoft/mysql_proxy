@@ -1,5 +1,4 @@
-/// 仿造 https://stackoverflow.com/questions/32710187/how-do-i-get-an-enum-as-a-string 编写
-/// 
+#[macro_export]
 macro_rules! enum_and_str {
     (enum $name:ident {
         $($variant:ident($val:ident)),*,
@@ -30,8 +29,17 @@ mod tests {
         }
     }
 
+    crate::enum_and_str! {
+         enum ParseError1 {
+            LengthNotEnough(String),
+            NotSupportHeader(String),
+        }
+    }
+
     #[test]
     fn test_01() {
         assert_eq!("LengthNotEnough", ParseError::LengthNotEnough(String::from("123")).name());
+        assert_eq!("LengthNotEnough", ParseError1::LengthNotEnough(String::from("123")).name());
     }
 }
+
