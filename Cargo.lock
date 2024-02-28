@@ -34,6 +34,7 @@ dependencies = [
 name = "protocol_macros"
 version = "0.1.0"
 dependencies = [
+ "proc-macro2",
  "quote",
  "syn",
 ]
@@ -41,6 +42,9 @@ dependencies = [
 [[package]]
 name = "proxy"
 version = "0.1.0"
+dependencies = [
+ "protocol",
+]
 
 [[package]]
 name = "quote"
