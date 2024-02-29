@@ -34,7 +34,7 @@ pub fn get_unit_le_length(bytes: &mut Bytes, n_bytes: usize) -> Result<u64, Pars
 pub fn parse(bytes: &mut Bytes) -> Result<u64, ParseError> {
     let first_byte = get_unit_le_length(bytes, 1)?;
     match first_byte {
-        0..=0xFB => Ok(first_byte),
+        0..=0xFA => Ok(first_byte),
         0xFC => get_unit_le_length(bytes, 2),
         0xFD => get_unit_le_length(bytes, 3),
         0xFE => get_unit_le_length(bytes, 8),
